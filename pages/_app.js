@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Head from 'next/head'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
+import { ShortcutProvider, withShortcut } from 'react-keybind'
 import DevWindow from '../components/devWindow'
 import '../styles/globals.css'
 
@@ -13,12 +14,17 @@ function MyApp({ Component, pageProps }) {
       window.location.reload()
     }
   }, [])
+  useEffect(()=>{
+    console.log(participants)
+  }, [participants])
   return <>
   <Head>
     <script src="https://fred-wang.github.io/mathml.css/mspace.js"></script>
     <link rel='stylesheet' href='https://fred-wang.github.io/mathml.css/mathml.css'/>
   </Head>
   <ChakraProvider>
+    <DevWindow setParticipants={setParticipants}/>
+
     <Component participants={participants} setParticipants={setParticipants} {...pageProps} />
   </ChakraProvider>
   </>
