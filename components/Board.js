@@ -1,11 +1,12 @@
 import { Box, Grid, GridItem, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import QuestionCard from "./Questioncard";
 import questions from "./questions";
 import UserCard from "./UserCard";
 import { shuffle } from "./utils";
 
 export default function Board({participants, money}){
-    const squestions = shuffle(questions)
+    const squestions = questions
     const [qns, setQns] = useState(['e'])
     function Tile({empty, difficulty, type}){
         return (<>
@@ -24,7 +25,6 @@ export default function Board({participants, money}){
     {participants.map((user, index)=>{
         return <UserCard data={user} index={index}/>
     })}
-    
     <VStack zIndex={4} rounded={'lg'} justifyContent={'center'} bg={'blackAlpha.500'} h={'calc((((100vh - 25px) / 5) * 3) - 50px)'} w={'calc((((100vh - 25px) / 5) * 3) - 50px)'} position={'fixed'} left={'0'} top={'0'}  transform={'translate(calc(50vw - 50%), calc(50vh - 50%))'}>
         <Heading>SpaceMath</Heading>
         <Text fontSize={'lg'} color={'white'}>Presented by Qi An and Joel Goh</Text>

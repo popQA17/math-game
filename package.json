@@ -13,6 +13,9 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "framer-motion": "^6.5.1",
+    "fs": "^0.0.1-security",
+    "jsdom": "^20.0.1",
+    "net": "^1.0.2",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -20,7 +23,10 @@
     "react-icons": "^4.4.0",
     "react-keybind": "^0.9.4",
     "react-rnd": "^10.3.7",
-    "react-roulette-pro": "^3.0.5"
+    "react-roulette-pro": "^3.0.5",
+    "react-sketch": "^0.5.1",
+    "react-sketch-canvas": "^6.2.0",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "eslint": "8.25.0",

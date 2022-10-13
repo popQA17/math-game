@@ -1,7 +1,7 @@
 function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
-    // While there remain elements to shuffle.
+    const newarr = array
+    let currentIndex = newarr.length,  randomIndex;
+    // While there remain newarr to shuffle.
     while (currentIndex != 0) {
   
       // Pick a remaining element.
@@ -9,11 +9,11 @@ function shuffle(array) {
       currentIndex--;
   
       // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+      [newarr[currentIndex], newarr[randomIndex]] = [
+        newarr[randomIndex], newarr[currentIndex]];
     }
   
-    return array;
+    return newarr;
   }
 
   function makeid(length) {
