@@ -12,14 +12,14 @@ const questions = [
     {
         mode: 'easy',
         id: makeid(6),
-        question: "Scotts bought one pack of vitamin candy for $3. Then he had 3/4 of his original amount of money left?",
+        question: "Scotts bought one pack of vitamin candy for $3. Then he had mfrac 3/4 of his original amount of money left?",
         type: 'text',
         correct: "12"
     },
     {
         mode: 'easy',
         id: makeid(6),
-        question: "After spending 1/4 of his money on noodles and 1/3 of the remainder on a cake, John had 8 dollars left. How much money did John have at first?",
+        question: "After spending mfrac 1/4 of his money on noodles and mfrac 1/3 of the remainder on a cake, John had 8 dollars left. How much money did John have at first?",
         type: 'text',
         correct: "16"
     },
@@ -33,7 +33,7 @@ const questions = [
     {
         mode: 'easy',
         id: makeid(6),
-        question: "Sewy earns $3000 per month. He saves 1/6 of the money he earns. How much money does he save in 2 months?",
+        question: "Sewy earns $3000 per month. He saves mfrac 1/6 of the money he earns. How much money does he save in 2 months?",
         type: 'choice',
         options: [
             "1",
@@ -46,11 +46,11 @@ const questions = [
     {
         mode: 'medium',
         id: makeid(6),
-        question: "Scotts has $y. He used 2/5 of his money to buy a video game. How much money the Scotts have now? ",
+        question: "Scotts has $y. He used mfrac 2/5 of his money to buy a video game. How much money the Scotts have now? ",
         type: 'text',
-        correct: "3y/15",
-        left: '$(',
-        right: ")"
+        correct: "3/5",
+        left: '$ (',
+        right: "y )"
     },
     {
         mode: 'medium',
@@ -63,7 +63,7 @@ const questions = [
     {
         mode: 'medium',
         id: makeid(6),
-        question: "Wayde had to wait for x hours. While waiting, he ate a full apple. Every 12 minutes, he eats 1/8 of the apple. What is the value of x? (express your answer as a decimal)",
+        question: "Wayde had to wait for x hours. While waiting, he ate a full apple. Every 12 minutes, he eats mfrac 1/8 of the apple. What is the value of x? (express your answer as a decimal)",
         type: 'text',
         correct: "1.6",
         right: 'hours'
@@ -71,7 +71,7 @@ const questions = [
     {
         mode: 'difficult',
         id: makeid(6),
-        question: <>Jake spent 2/3 of his money on shoes. Sam spent 1/3 of his money on the same shoes. They had $600 dollars left. How much money do they have altogether at first?</>,
+        question: "Jake spent mfrac 2/3 of his money on shoes. Sam spent mfrac 1/3 of his money on the same shoes. They had $600 dollars left. How much money do they have altogether at first?",
         type: 'text',
         correct: "1080",
         left: '$'

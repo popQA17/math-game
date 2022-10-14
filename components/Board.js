@@ -29,7 +29,7 @@ export default function Board({participants, money}){
     function Tile({index, empty, difficulty, type}){
         var x = 0
         return (<>
-            <GridItem justifyContent={'center'} position={'relative'} as={Wrap} rounded={'lg'} display={'flex'} alignItems={'center'} justifyContent={'center'} h='calc((90vh - 25px) /5)' style={{aspectRatio: '1/1'}}  bg={!empty && difficulty == 'easy' ? 'green.200' : difficulty == 'medium' ? 'orange.200' : difficulty == 'difficult' ? 'red.200' : type == "start" ? 'gray.700' : type == 'power' ? 'purple.600' : type == 'rest' && 'yellow.300'}>
+            <GridItem justifyContent={'center'} position={'relative'} as={Wrap} rounded={'lg'} display={'flex'} alignItems={'center'} h='calc((90vh - 25px) /5)' style={{aspectRatio: '1/1'}}  bg={!empty && difficulty == 'easy' ? 'green.200' : difficulty == 'medium' ? 'orange.200' : difficulty == 'difficult' ? 'red.200' : type == "start" ? 'gray.700' : type == 'power' ? 'purple.600' : type == 'rest' && 'yellow.300'}>
               {type == 'power' ?
                 <Text fontSize={'xl'} color={'white'} fontWeight={'semibold'}>Power Card!</Text>
                 : type == 'rest' &&
