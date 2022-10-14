@@ -14,7 +14,7 @@ export default function DevWindow({setParticipants}){
     const devPw = '123456'
     const router = useRouter()
     const [pin, setPin] = useState("")
-    useHotkeys('ctrl+q, cmd+q', ()=>{
+    useHotkeys('ctrl+q, cmd+k', ()=>{
         setVisible(true)
         setMinimized(false)
     })
@@ -30,7 +30,7 @@ export default function DevWindow({setParticipants}){
         backdropFilter={"blur(10px)"}
         rounded={'lg'}
         style={{
-            zIndex: '4'
+            zIndex: '5'
         }}
         default={{
         x: 0,

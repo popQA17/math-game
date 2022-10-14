@@ -25,7 +25,6 @@ export default function QuestionCard() {
     }, [])
   return (<>
     <VStack p={'40px'} bg={'blackAlpha.800'} backdropFilter={'blur(10px)'} h={'100vh'} w={'full'} position={'fixed'} zIndex={'5'}>
-    <math display='block'><mfrac><mn>2</mn><md>5</md></mfrac></math>
     <VStack top={0} zIndex={'5'} bg={'blackAlpha.700'} rounded={'lg'} p={'30px'} h={'100vh'} w={'100vh'}>
       <Text alignItems={'center'} display={'flex'} flexWrap={'wrap'} textAlign={'center'} fontSize={'xl'} w={'full'} dangerouslySetInnerHTML={{__html: text}}></Text>
       <Box border={'none !important'} strokeColor="#4FD1C5" canvasColor={'#171923'} as={ReactSketchCanvas} h={'full'} w={'full'} rounded={'lg'} bg={'gray.900'}>

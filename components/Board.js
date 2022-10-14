@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, Wrap, Avatar, GridItem, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import QuestionCard from "./Questioncard";
 import questions from "./questions";
@@ -8,16 +8,41 @@ import { shuffle } from "./utils";
 export default function Board({participants, money}){
     const squestions = questions
     const [qns, setQns] = useState(['e'])
-    function Tile({empty, difficulty, type}){
+    const [position, setPosition] = useState([])
+    useEffect(()=>{      
+      setPosition([])
+      participants.map((participant)=>{
+        const payload = {
+          name: participant.name,
+          id: participant.id,
+          position: 1
+        }
+        setPosition((old)=> [... old, payload])        
+      })
+    }, [participants])
+    const colorList = [
+        'red',
+        'blue',
+        'green',
+        'yellow'
+    ]
+    function Tile({index, empty, difficulty, type}){
+        var x = 0
         return (<>
-            <GridItem rounded={'lg'} display={'flex'} alignItems={'center'} justifyContent={'center'} h='calc((90vh - 25px) /5)' style={{aspectRatio: '1/1'}}  bg={!empty && difficulty == 'easy' ? 'green.200' : difficulty == 'medium' ? 'orange.200' : difficulty == 'difficult' ? 'red.200' : type == "start" ? 'gray.700' : type == 'power' ? 'purple.600' : type == 'rest' && 'yellow.300'}>
-                {type == 'start' ? 
-                <Text fontSize={'2xl'} fontWeight={'semibold'}>GO!</Text>
-                : type == 'power' ?
+            <GridItem justifyContent={'center'} position={'relative'} as={Wrap} rounded={'lg'} display={'flex'} alignItems={'center'} justifyContent={'center'} h='calc((90vh - 25px) /5)' style={{aspectRatio: '1/1'}}  bg={!empty && difficulty == 'easy' ? 'green.200' : difficulty == 'medium' ? 'orange.200' : difficulty == 'difficult' ? 'red.200' : type == "start" ? 'gray.700' : type == 'power' ? 'purple.600' : type == 'rest' && 'yellow.300'}>
+              {type == 'power' ?
                 <Text fontSize={'xl'} color={'white'} fontWeight={'semibold'}>Power Card!</Text>
                 : type == 'rest' &&
                 <Text fontSize={'xl'} color={'black'} fontWeight={'semibold'}>Rest</Text>
                 }
+              {position.map((pos, y)=>{
+                console.log(x)
+                console.log(pos.position)
+                if (pos.position == index){
+                  x += 1
+                  return <Avatar color={'white'} mx={'auto'} name={pos.name}  bg={colorList[y]+".300"}/>
+                }
+              })}   
             </GridItem>
         </>)
     }
@@ -36,36 +61,36 @@ export default function Board({participants, money}){
         <Grid width={'100vh'} height={'90vh'} overflow={'none'} templateColumns='repeat(5, 1fr)' gap={"0px"}>
             {qns.length > 0 && 
             <>
-            <Tile type="start"/>
-            <Tile difficulty={squestions[0].mode}/>
-            <Tile type='power'/>
-            <Tile difficulty={squestions[1].mode}/>
-            <Tile difficulty={squestions[2].mode}/>
+            <Tile index={1} type="start"/>
+            <Tile index={2} difficulty={squestions[0].mode}/>
+            <Tile index={3} type='power'/>
+            <Tile index={4} difficulty={squestions[1].mode}/>
+            <Tile index={5} difficulty={squestions[2].mode}/>
             
-            <Tile difficulty={squestions[3].mode}/>
+            <Tile index={6} difficulty={squestions[3].mode}/>
             <Tile empty={true}/>
             <Tile empty={true}/>
             <Tile empty={true}/>
-            <Tile difficulty={squestions[4].mode}/>
+            <Tile index={7} difficulty={squestions[4].mode}/>
 
-            <Tile type='power'/>
+            <Tile index={8} type='power'/>
             <Tile empty={true}/>
+            <Tile empty={true}/>            
             <Tile empty={true}/>
-            <Tile empty={true}/>
-            <Tile type='power'/>
+            <Tile index={9} type='power'/>
 
-            <Tile difficulty={squestions[5].mode}/>
+            <Tile index={10} difficulty={squestions[5].mode}/>
             <Tile empty={true}/>
             <Tile empty={true}/>
             <Tile empty={true}/>
-            <Tile difficulty={squestions[6].mode}/>
+            <Tile index={11} difficulty={squestions[6].mode}/>
 
 
-            <Tile difficulty={squestions[7].mode}/>
-            <Tile difficulty={squestions[8].mode}/>
-            <Tile type='power'/>
-            <Tile difficulty={squestions[9].mode}/>
-            <Tile type='rest'/>
+            <Tile index={12} difficulty={squestions[7].mode}/>
+            <Tile index={13} difficulty={squestions[8].mode}/>
+            <Tile index={14} type='power'/>
+            <Tile index={15} difficulty={squestions[9].mode}/>
+            <Tile index={16} type='rest'/>
             </>
             }
         </Grid>

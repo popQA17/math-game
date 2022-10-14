@@ -4,7 +4,7 @@ import Wheel from "../components/wheel";
 
 export default function Game({participants}){
     return(<>
-    <QuestionCard/>
+
     <Board participants={participants}/>
     </>)
 }

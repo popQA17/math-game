@@ -14,7 +14,7 @@ export default function UserCard({data, index}){
                 <Heading fontSize={'xl'} fontWeight={'semibold'}>{data.name}</Heading>
                 <Spacer/>
                 <HStack rounded={'lg'} bg={'blackAlpha.500'} px={4} py={1}>
-                    <Image width={'50px'} height={'auto'} src={"/moneySign.png"}/>
+                    <Image width={'50px'} height={'auto'} src={"/MoneySign.png"}/>
                     <Text fontWeight={'bold'} fontSize={'xl'}>{data.money}</Text>
                 </HStack>
             </HStack>
