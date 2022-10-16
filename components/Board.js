@@ -169,7 +169,7 @@ export default function Board({participants, money}){
               setWheelOpen(false)
               setTimeout(()=>{
                 console.log(position[0])
-                openTile(position[0])
+                openTile(position[0] - 1)
               }, 1000)
             }, 2000)
           }}/>
