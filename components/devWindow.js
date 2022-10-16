@@ -30,7 +30,7 @@ export default function DevWindow({setParticipants}){
         backdropFilter={"blur(10px)"}
         rounded={'lg'}
         style={{
-            zIndex: '5'
+            zIndex: '6'
         }}
         default={{
         x: 0,

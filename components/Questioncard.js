@@ -37,7 +37,7 @@ export default function QuestionCard({question}) {
       }
     }, [eraser])
   return (<>
-    <VStack p={'40px'} bg={'blackAlpha.800'} backdropFilter={'blur(10px)'} h={'100vh'} w={'full'} position={'fixed'} zIndex={'5'}>
+    <VStack bg={'blackAlpha.800'} backdropFilter={'blur(10px)'}>
     <VStack top={0} zIndex={'5'} bg={'blackAlpha.700'} rounded={'lg'} p={'30px'} h={'100vh'} w={'100vh'}>
       <Text alignItems={'center'} display={'flex'} flexWrap={'wrap'} textAlign={'center'} fontSize={'xl'} w={'full'} dangerouslySetInnerHTML={{__html: text}}></Text>
       <Box rounded={'lg'} position={'relative !important'} border={'none !important'} h={'full'} w={'full'} bg={'gray.900'}>

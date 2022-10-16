@@ -5,7 +5,6 @@ import Wheel from "../components/wheel";
 
 export default function Game({participants}){
     return(<>
-    <QuestionCard question={questions[8]}/>
     <Board participants={participants}/>
     </>)
 }

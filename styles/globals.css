@@ -23,3 +23,38 @@
     50%{background-position:91% 100%}
     100%{background-position:10% 0%}
 }
+
+.roulette-spin{
+	height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background:black;
+    background-image: url(/wheel.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    transform: rotate(0deg);
+    transition: transform 5s cubic-bezier(.41,.2,.38,1.02);
+}
+
+.spin-1{
+	transform: rotate(3600deg);
+}
+
+
+.spin-2{
+	transform: rotate(3528deg);
+}
+
+.spin-3{
+	transform: rotate(3456deg);
+}
+
+.spin-4{
+	transform: rotate(3384deg);
+}
+
+.spin-5{
+	transform: rotate(3312deg);
+}
+

@@ -21,14 +21,17 @@ const questions = [
         id: makeid(6),
         question: "After spending mfrac 1/4 of his money on noodles and mfrac 1/3 of the remainder on a cake, John had 8 dollars left. How much money did John have at first?",
         type: 'text',
-        correct: "16"
+        correct: "16",
+        left: '$'
     },
     {
         mode: 'easy',
         id: makeid(6),
-        question: "Winnie was $y. After spending $5 how much did she have?",
+        question: "Winnie had $y. After spending $5 how much did she have?",
         type: 'text',
-        correct: "y-5"
+        correct: "y-5",
+        left: '$ (',
+        right: ')'
     },
     {
         mode: 'easy',
