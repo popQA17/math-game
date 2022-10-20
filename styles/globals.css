@@ -25,8 +25,8 @@
 }
 
 .roulette-spin{
-	height: 400px;
-    width: 400px;
+	height: 300px;
+    width: 300px;
     border-radius: 50%;
     background:black;
     background-image: url(/wheel.png);
@@ -34,7 +34,7 @@
     background-position: center;
     color: white;
     transform: rotate(0deg);
-    transition: transform 5s cubic-bezier(.41,.2,.38,1.02);
+    transition: transform 3s cubic-bezier(.41,.2,.38,1.02);
 }
 
 .spin-1{
@@ -58,3 +58,26 @@
 	transform: rotate(3312deg);
 }
 
+
+.card{
+    cursor: pointer;
+    width: 340px;
+    height:480px;
+  }
+  .front, .back{
+    width:340px;
+    height: 480px;
+    overflow:hidden;
+    backface-visibility:hidden;
+    position:absolute;
+    transition: transform .5s linear;
+  }
+  .card-active > .front{
+    transform: perspective(600px) rotateY(-180deg);
+  }
+  .card-active > .back{
+    transform: perspective(600px) rotateY(0deg);
+  }
+  .back{
+    transform:rotateY(180deg);
+  }

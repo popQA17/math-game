@@ -1,8 +1,10 @@
 import { Box, Button, Heading, Spacer, Text, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export default function Homepage(){
+export default function Homepage({setParticipants}){
   const router = useRouter()
+  
   return(<>
     <Box filter={'blur(20px)'} position={'fixed'} top={0} left={0} w={'full'} h={'full'} backgroundColor={'black'} backgroundImage={'/welcome.jpg'} backgroundSize={'cover'} backgroundPosition={'top'} backgroundRepeat={'no-repeat'} zIndex={2}>
     </Box>

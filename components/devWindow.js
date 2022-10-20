@@ -1,4 +1,4 @@
-import { Box, Button, Heading, HStack, IconButton, PinInput, PinInputField, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Heading, HStack, IconButton, PinInput, PinInputField, Select, Spacer, Text, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
@@ -7,17 +7,24 @@ import { Rnd } from "react-rnd";
 import { makeid } from "./utils";
 
 
-export default function DevWindow({setParticipants}){
+export default function DevWindow({setParticipants, participants, checkExceed, updateState}){
     const [minimized, setMinimized] = useState(false)
     const [stage, setStage] = useState(0)
     const [visible, setVisible] = useState(false)
     const devPw = '123456'
     const router = useRouter()
+    const [participant, setParticipant] = useState(null)
     const [pin, setPin] = useState("")
-    useHotkeys('ctrl+q, cmd+k', ()=>{
+    function getParticipant(id){
+        return participants.filter((old) => old.id == id)[0]
+    }
+    useHotkeys('ctrl+m, cmd+m', ()=>{
         setVisible(true)
         setMinimized(false)
     })
+    function checkDisabled(){
+        return  participants.length < 2 || participant == "-- NO PARTICIPANT SELECTED --" || participant == null 
+    }
     return(<>
     { visible && 
     <Rnd
@@ -74,33 +81,69 @@ export default function DevWindow({setParticipants}){
         :
         <>
         <Heading mt={'20px'} fontSize={'3xl'}>Shortcuts</Heading>
-        <VStack px={'10px'} mt={'10px'}>
-            <Button w={'full'} onClick={()=> {
-                setParticipants([
-                    {
-                        name: 'Tim',
-                        id: makeid(10),
-                        money: 0
-                    },
-                    {
-                        name: 'Jane',
-                        id: makeid(10),
-                        money: 0
-                    },
-                    {
-                        name: 'Mary',
-                        id: makeid(10),
-                        money: 0
-                    },
-                    {
-                        name: 'John',
-                        id: makeid(10),
-                        money: 0
-                    }
-                ])
-                router.push('/game')
-            }}>Auto-fill participants</Button>
-        </VStack>
+        <Accordion mt={'20px'} defaultIndex={[0]} allowMultiple>
+        <AccordionItem>
+        <h2>
+            <AccordionButton bg={'whiteAlpha.50'}>
+                <Box flex='1' textAlign='left'>
+                Participants
+                </Box>
+                <AccordionIcon />
+            </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+            <VStack px={'10px'} mt={'10px'}>
+                <Button size={'sm'} w={'full'} onClick={()=> {
+                    setParticipants([
+                        {
+                            name: 'Tim',
+                            id: makeid(10),
+                            money: 0
+                        },
+                        {
+                            name: 'Jane',
+                            id: makeid(10),
+                            money: 0
+                        },
+                        {
+                            name: 'Mary',
+                            id: makeid(10),
+                            money: 0
+                        },
+                        {
+                            name: 'John',
+                            id: makeid(10),
+                            money: 0
+                        }
+                    ])
+                    router.push('/game')
+                }}>Auto-fill participants</Button>
+                <Select value={participant} onChange={(e)=>{
+                    setParticipant(e.target.value)
+                }} disabled={participants.length < 2} rounded={'lg'} size={'sm'} variant={'filled'}>
+                    <option value={null}>-- NO PARTICIPANT SELECTED --</option>
+                    {participants.map((participant)=>{
+                        return (<>
+                        <option value={participant.id}>{participant.name}</option>
+                        </>)
+                    })}
+                </Select>
+                <Button onClick={()=>{
+                    getParticipant(participant).money += 100
+                    checkExceed()
+                    setParticipants(participants)
+                    updateState()
+                }} size={'sm'} w={'full'} isDisabled={checkDisabled()}>Give 100 SpaceBucks</Button>
+                <Button onClick={()=>{
+                    getParticipant(participant).money -= 100
+                    checkExceed()
+                    setParticipants(participants)
+                    updateState()
+                }} size={'sm'} w={'full'} isDisabled={checkDisabled()}>Remove 100 SpaceBucks</Button>
+            </VStack>
+        </AccordionPanel>
+        </AccordionItem>
+        </Accordion>
         </>
         }
     </Rnd>

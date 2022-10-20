@@ -14,6 +14,7 @@ export default function GameSetup(participants, setParticipants){
             money: 0
         }
         participants.setParticipants([... participants.participants, payload])
+        setName('')
         onClose()
     }
     return(<>
@@ -56,13 +57,14 @@ export default function GameSetup(participants, setParticipants){
                         <Icon as={FaUser}/>
                         <Text>{participant.name}</Text>
                         <Spacer/>
-                        <IconButton colorScheme={'blue'} size={'sm'} icon={<FaPen/>}></IconButton>
-                        <IconButton colorScheme={'red'} size={'sm'} icon={<FaTrash/>}></IconButton>
+                        <IconButton onClick={()=>{
+                            participants.setParticipants((old)=> old.filter((older)=> older.id != participant.id))
+                        }} colorScheme={'red'} size={'sm'} icon={<FaTrash/>}></IconButton>
                     </HStack>
                     </>)
                 })}
                 <Button isDisabled={participants.participants.length == 4} onClick={onOpen} w={'full'} colorScheme={'blue'} leftIcon={<FaPlus/>}>Add</Button>
-                <Button onClick={()=> router.push('/game')} isDisabled={participants.participants.length < 2} w={'full'} leftIcon={<FaChevronRight/>}>Start Game</Button>
+                <Button onClick={()=> router.push('/instructions/0')} isDisabled={participants.participants.length < 2} w={'full'} leftIcon={<FaChevronRight/>}>Start Game</Button>
             </VStack>
         </VStack>
     </VStack>
