@@ -51,7 +51,7 @@ const questions = [
     {
         mode: 'easy',
         id: makeid(6),
-        question: "2/4 of a number is 18. What is the number?",
+        question: "mfrac 2/4 of a number is 18. What is the number?",
         type: 'text',
         correct: "32",
         money: 100
@@ -137,7 +137,7 @@ const questions = [
     {
         mode: 'difficult',
         id: makeid(6),
-        question: "Jackle spent 2/4 of her money on a book. Samuel spent 2/3 of his money on the same book. They had $28 dollars left altogether . How much money do they have altogether at first?",
+        question: "Jackle spent mfrac 2/4 of her money on a book. Samuel spent mfrac 2/3 of his money on the same book. They had $28 dollars left altogether . How much money do they have altogether at first?",
         type: 'text',
         correct: "49",
         left: '$',
